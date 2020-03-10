@@ -2,6 +2,8 @@ package chapter_2;
 
 import utils.StdOut;
 
+import java.util.Random;
+
 public class MergeAsc {
     private static Comparable[] aux;
 
@@ -62,6 +64,15 @@ public class MergeAsc {
     }
 
     public static void main(String[] args) {
-
+        Integer[] test = new Integer[10];
+        Random rand = new Random();
+        for (int i = 0; i < test.length; i++) {
+            test[i] = rand.nextInt(20);
+        }
+        System.out.println("Before sort:");
+        show(test);
+        sort(test);
+        System.out.println("After sort:");
+        show(test);
     }
 }
