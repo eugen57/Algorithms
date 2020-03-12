@@ -1,5 +1,7 @@
 package chapter_2;
 
+import java.util.Random;
+
 public class MaxPQ<Key extends Comparable<Key>> {
     private Key[] pq;
     private int N = 0;
@@ -70,6 +72,18 @@ public class MaxPQ<Key extends Comparable<Key>> {
     }
 
     public static void main(String[] args) {
-
+        int size = 5;
+        Integer[] test = new Integer[size];
+        Random rand = new Random();
+        for (int i = 0; i < test.length; i++) {
+            test[i] = rand.nextInt(20);
+        }
+        MaxPQ<Integer> pq = new MaxPQ<>(size);
+        for (Integer integer : test) {
+            pq.insert(integer);
+        }
+        Integer firstMax = pq.delMax();
+        Integer secondMax = pq.delMax();
+        System.out.println("Done");
     }
 }
