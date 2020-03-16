@@ -28,8 +28,12 @@ public class Quick {
         Comparable v = a[lo]; // Центральный элемент
         while (true)
         { // Просмотр справа, просмотр слева, проверка на завершение и обмен,
-            while (less (a [++i] , v) ) if (i == hi) break;
-            while (less(v, a[--j])) if (j == lo) break;
+            while (less (a [++i] , v) ) {
+                if (i == hi) break;
+            }
+            while (less(v, a[--j])) {
+                if (j == lo) break;
+            }
             if (i >= j) break;
             exch(a, i, j) ;
         }
