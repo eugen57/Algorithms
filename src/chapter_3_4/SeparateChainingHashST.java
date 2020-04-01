@@ -3,8 +3,8 @@ package chapter_3_4;
 import chapter_3_1.SequentialST;
 
 public class SeparateChainingHashST<Key extends Comparable<Key>, Value> {
-    int M; // count of key-val pairs
-    int N; // size of array
+    int M; // size of hash-table
+    int N; // count of key-val pairs
     private SequentialST<Key, Value>[] st;
 
     public SeparateChainingHashST() {
@@ -23,6 +23,14 @@ public class SeparateChainingHashST<Key extends Comparable<Key>, Value> {
         return (key.hashCode() & 0x7fffffff) % M;
     }
 
+    public boolean isEmpty() {
+        return N == 0;
+    }
+
+    public boolean contains(Key key) {
+        return get(key) != null;
+    }
+
     public Value get(Key key) {
         return st[hash(key)].get(key);
     }
@@ -32,7 +40,10 @@ public class SeparateChainingHashST<Key extends Comparable<Key>, Value> {
     }
 
     public void delete(Key key) {
+        if (isEmpty() || !contains(key)) return;
         st[hash(key)].delete(key);
+        N--;
+//        resize()
     }
 
     public Iterable<Key> keys() {
