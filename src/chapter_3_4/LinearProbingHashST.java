@@ -1,5 +1,9 @@
 package chapter_3_4;
 
+import chapter_1_3.Queue;
+
+import java.util.Arrays;
+
 public class LinearProbingHashST<Key, Value> {
     private int M = 16; // size of hash table
     private int N; // key-val pairs
@@ -64,5 +68,28 @@ public class LinearProbingHashST<Key, Value> {
         }
         N--;
         if (N > 0 && N == M/8) resize(M/2);
+    }
+
+    public Iterable<Key> keys() {
+        Queue<Key> keysQueue = new Queue<>();
+        for (int i = 0; i < keys.length; i++) {
+            if (keys[i] != null) keysQueue.enqueue(keys[i]);
+        }
+        // sort?
+//        if (!keysQueue.isEmpty() && keysQueue.peek() instanceof Comparable) {
+//            Key[] keysToBeSorted = (Key[]) new Comparable[keysQueue.size()];
+//            for(int i = 0; i < keysToBeSorted.length; i++) {
+//                keysToBeSorted[i] = keysQueue.dequeue();
+//            }
+//
+//            Arrays.sort(keysToBeSorted);
+//
+//            for(Key key : keysToBeSorted) {
+//                keysQueue.enqueue(key);
+//            }
+//        }
+
+
+        return keysQueue;
     }
 }

@@ -1,6 +1,9 @@
 package chapter_3_4;
 
+import chapter_1_3.Queue;
 import chapter_3_1.SequentialST;
+
+import java.util.Arrays;
 
 public class SeparateChainingHashST<Key extends Comparable<Key>, Value> {
     int M; // size of hash-table
@@ -47,6 +50,27 @@ public class SeparateChainingHashST<Key extends Comparable<Key>, Value> {
     }
 
     public Iterable<Key> keys() {
-        return null;
+        Queue<Key> keys = new Queue<>();
+        for (int i = 0; i < M; i++) {
+            SequentialST<Key, Value> cell = st[i];
+            for (Object key: cell.keys()) {
+                keys.enqueue((Key) key);
+            }
+        }
+        // sort?
+//        if (!keys.isEmpty() && keys.peek() instanceof Comparable) {
+//            Key[] keysToBeSorted = (Key[]) new Comparable[keys.size()];
+//            for(int i = 0; i < keysToBeSorted.length; i++) {
+//                keysToBeSorted[i] = keys.dequeue();
+//            }
+//
+//            Arrays.sort(keysToBeSorted);
+//
+//            for(Key key : keysToBeSorted) {
+//                keys.enqueue(key);
+//            }
+//        }
+
+        return keys;
     }
 }
