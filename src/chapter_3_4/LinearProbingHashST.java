@@ -92,4 +92,8 @@ public class LinearProbingHashST<Key, Value> {
 
         return keysQueue;
     }
+
+    public int size() {
+        return N;
+    }
 }
