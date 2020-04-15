@@ -30,6 +30,15 @@ public class Graph {
         E++;
     }
 
+    public boolean hasEdge(int v1, int v2) {
+        for(int w: adj(v1)) {
+            if(w == v2) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public Iterable<Integer> adj(int v) {
         return adj[v];
     }
