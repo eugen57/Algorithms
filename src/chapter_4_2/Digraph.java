@@ -18,8 +18,16 @@ public class Digraph {
     }
 
     public void addEdge(int v, int w) {
+        if(v == w || hasEdge(v, w)) return;
         adj[v].add(w);
         E++;
+    }
+
+    public boolean hasEdge(int v, int w) {
+        for(int s: adj(v)) {
+            if(s == w) return true;
+        }
+        return false;
     }
 
     public Iterable<Integer> adj(int v) {
