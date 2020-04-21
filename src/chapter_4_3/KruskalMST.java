@@ -5,6 +5,8 @@ import chapter_1_5.WeightedQuickUnionUF;
 import chapter_2.PriorityQueueResize;
 import utils.In;
 
+import java.util.PriorityQueue;
+
 public class KruskalMST {
     private Queue<Edge> mst;
 
@@ -12,9 +14,12 @@ public class KruskalMST {
         mst = new Queue<>();
         PriorityQueueResize<Edge> pq = new PriorityQueueResize(PriorityQueueResize.Orientation.MIN);
         for(Edge e: G.edges()) pq.insert(e);
+//        PriorityQueue<Edge> pq = new PriorityQueue<>(G.V());
+//        for(Edge e: G.edges()) pq.add(e);
 
         WeightedQuickUnionUF uf = new WeightedQuickUnionUF(G.V());
         while (!pq.isEmpty() && mst.size() < G.V() - 1) {
+//            Edge e = pq.poll();
             Edge e = pq.deleteTop();
             int v = e.either();
             int w = e.other(v);
