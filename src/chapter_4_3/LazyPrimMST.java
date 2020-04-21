@@ -36,6 +36,10 @@ public class LazyPrimMST {
     }
 
     public double weight() {
-        return 0.0;
+        double w = 0.0;
+        for(Edge e: edges()) {
+            w += e.weight();
+        }
+        return w;
     }
 }
