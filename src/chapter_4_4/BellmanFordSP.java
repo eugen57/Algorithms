@@ -50,7 +50,7 @@ public class BellmanFordSP {
         for (int v = 0; v < V; v++) {
             if(edgeTo[v] != null) spt.addEdge(edgeTo[v]);
         }
-        EdgeWeightedCycleFinder cf = new EdgeWeightedCycleFinder(spt);
+        EdgeWeightedDirectedCycle cf = new EdgeWeightedDirectedCycle(spt);
         cycle = cf.cycle();
     }
 
