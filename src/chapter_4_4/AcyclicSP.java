@@ -1,7 +1,6 @@
 package chapter_4_4;
 
 import chapter_1_3.Stack;
-import chapter_4_2.Topological;
 
 public class AcyclicSP {
     private DirectedEdge[] edgeTo;
