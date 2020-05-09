@@ -1,4 +1,4 @@
-package charter_5_1;
+package chapter_5_1;
 
 public class LSD {
     private static void sort(String[] a, int W) {

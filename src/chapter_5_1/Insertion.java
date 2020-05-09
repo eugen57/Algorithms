@@ -1,4 +1,4 @@
-package charter_5_1;
+package chapter_5_1;
 
 public class Insertion {
     public static void sort (String [] a, int lo, int hi, int d) { // Сортировка от а[1о] до a[hi], начиная с d-го символа,

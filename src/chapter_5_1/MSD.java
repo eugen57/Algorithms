@@ -1,4 +1,4 @@
-package charter_5_1;
+package chapter_5_1;
 
 public class MSD {
     private static int R = 256; // Основание
