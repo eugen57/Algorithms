@@ -39,4 +39,22 @@ public class TST<Value> {
         else x.val = val;
         return x;
     }
+
+    public String longestPrefixOf(String query) {
+        if (query == null || query.length() == 0) return null;
+        int length = 0;
+        Node x = root;
+        int i = 0;
+        while (x != null && i < query.length()) {
+            char c = query.charAt(i);
+            if      (c < x.c) x = x.left;
+            else if (c > x.c) x = x.right;
+            else {
+                i++;
+                if (x.val != null) length = i;
+                x = x.mid;
+            }
+        }
+        return query.substring(0, length);
+    }
 }
